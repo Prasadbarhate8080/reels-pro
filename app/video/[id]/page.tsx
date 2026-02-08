@@ -4,15 +4,15 @@ import { MoveDown } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
-function page({ params }: { params: Promise<{ id: string }> }) {
+export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const searchParams = useSearchParams();
-  let router = useRouter();
+  const router = useRouter();
   const url = searchParams.get("url");
-  let handleSchroll = async () => {
+  const handleSchroll = async () => {
     try {
-      let response = await fetch("/api/video");
+      const response = await fetch("/api/video");
       if (!response.ok) throw new Error("error in getting videos");
-      let videoData = await response.json();
+      const videoData = await response.json();
       console.log(videoData);
       router.push(
         `/video/${videoData.data[0]._id}?url=${videoData.data[0].videoUrl}`,
@@ -64,4 +64,3 @@ function page({ params }: { params: Promise<{ id: string }> }) {
   );
 }
 
-export default page;
