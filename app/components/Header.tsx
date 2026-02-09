@@ -31,7 +31,7 @@ export default function Header() {
             }
           >
             <Home className="w-5 h-5" />
-            ImageKit ReelsPro
+             ReelsPro
           </Link>
         </div>
         <div className="flex items-stretch gap-2 px-2">
